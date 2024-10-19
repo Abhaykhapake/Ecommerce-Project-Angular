@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" *ngFor="let row of slider;let i=index;" [class.active]="i==0">
+            <img class="d-block w-100" [src]="row.slider_img" alt="First slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<br /><br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>New Products</h1>
+        </div>
+        <ng-container *ngFor="let row of products; let i = index">
+            <div class="col-md-3 mt-4" *ngIf="i<8">
+                <div class="card" routerLink="/product-info/{{row.product_tbl_id}}">
+                    <div class="card-header">
+                        <div style="max-height: 280px; overflow: hidden;">
+                            <img [src]="row.product_img" width="100%">
+                        </div>
+                        <h5 class="mt-3">{{row.product_name}}</h5>
+                        <h3>&#8377;{{row.price}} /-</h3>
+                    </div>
+
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>
